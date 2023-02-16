@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - a program that prints various computer sizes using printf function
+ * main - description: prints various computer sizes using printf function
  * return 0 (Success)
  */
 int main(void)
