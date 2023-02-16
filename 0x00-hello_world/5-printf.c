@@ -1,4 +1,4 @@
-#include <stdio.>
+#include <stdio.h>
 /**
  * main - this prints with proper grammar, but the outcome is a piece of art,
  * Return: this returns 0
