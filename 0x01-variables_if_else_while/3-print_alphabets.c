@@ -10,6 +10,6 @@ for (lower = 'a'; lower <= 'z'; lower++)
 putchar(lower);
 for (lower = 'A'; lower <= 'Z'; lower++)
 putchar(lower);
-putchar('\n')
+putchar('\n');
 return (0);
 }
