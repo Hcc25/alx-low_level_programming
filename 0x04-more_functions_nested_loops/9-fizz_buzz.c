@@ -2,6 +2,8 @@
 #include <stdio.h>
 /**
  * fizz_buzz - printing to 100
+ * @void: no arguments
+ * Return: 0 Success
  */
 void fizz_buzz(void)
 {
