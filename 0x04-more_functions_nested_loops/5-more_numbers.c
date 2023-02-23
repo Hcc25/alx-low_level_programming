@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * more_numbers - printing more numbers
- * Return: always (0)
  */
 void more_numbers(void)
 {
