@@ -1,0 +1,15 @@
+#include "main.h"
+/**
+ * print_line - printing line
+ * @n: integer parameter
+ */
+void print_line(int n)
+{
+	int i;
+
+	if (n <= 0)
+		_putchar('\n');
+	for (i = 0; i <= n; x++)
+		_putchar('_');
+	_putchar('\n');
+}
