@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _memset - fills the first n bytes of the memory area
+ * _memset - this memory set function
  *  @s: string
  *  @b: the character to fill the area with
  *  @n: an integer
