@@ -2,8 +2,7 @@
 /**
  * _strchr - string character
  * @s: string given
- * @c:
- * another char
+ * @c: input
  * Return: a string
  */
 char *_strchr(char *s, char c)
