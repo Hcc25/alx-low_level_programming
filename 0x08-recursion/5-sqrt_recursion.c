@@ -1,5 +1,4 @@
 #include "main.h"
-#include <math.h>
 /**
  * _sqrt - recursive square root
  * @n: number
