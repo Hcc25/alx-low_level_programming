@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 			return (1);
 		}
 	}
+	}
 	for (k = 1; k < argc; k++)
 	{
 		num = atoi(argv[k]);
