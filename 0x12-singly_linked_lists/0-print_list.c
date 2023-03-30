@@ -5,7 +5,7 @@
  * @h: Pointer to a list
  * Return: The number of nodes in the list
  */
-size_t print_listint(const listint_t *h)
+size_t print_list(const list_t *h);
 {
 	unsigned int count;
 
