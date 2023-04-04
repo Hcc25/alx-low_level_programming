@@ -6,6 +6,15 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	wq
-		unsigned int nodes
+	size_t count = 0;
 
+	if (h)
+	{
+		printf("%i\n", h->n);
+		if (h->next)
+			count += print_listint(h->next);
+		return (count + 1);
+	}
+	else
+		return (count);
+}
