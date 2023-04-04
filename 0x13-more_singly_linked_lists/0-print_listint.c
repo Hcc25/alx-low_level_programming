@@ -7,15 +7,14 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t count = 0;
+	unsigned int count;
 
-	if (h)
+	if (h == NULL)
+		return (0);
+	for (count = 0; h != NULL; count++)
 	{
-		printf("%i\n", h->n);
-		if (h->next)
-			count += print_listint(h->next);
-		return (count + 1);
+		printf("%d\n", h->n);
+		h = h->next;
 	}
-	else
-		return (count);
+	return (count);
 }
