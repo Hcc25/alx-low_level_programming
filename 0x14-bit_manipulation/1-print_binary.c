@@ -14,9 +14,9 @@ void print_binary(unsigned long int n)
 		if (z & 1)
 		{
 			_putchar('1');
-			z++;
+			count++;
 		}
-		else if (z)
+		else if (count)
 			_putchar('0');
 	}
 	if (!count)
