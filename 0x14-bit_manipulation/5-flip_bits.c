@@ -9,15 +9,12 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int n ^ m;
-	unsigned long int bits;
-	int x, y;
+	unsigned int xor = n ^ m, fliped;
 
-	for (x = 63; x >= 0; x--)
+	while (xor > 0)
 	{
-		bits = n ^ m >> 1;
-		if (n ^ m & 1)
-			y++;
+		fliped += (xor & 1);
+		xor >>= 1;
 	}
-	return (y);
+	return (fliped);
 }
