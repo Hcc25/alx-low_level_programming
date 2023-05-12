@@ -1,13 +1,17 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
+
 char *create_buffer(char *file);
 void close_file(int fd);
+
 /**
- * create_buffer - allocates bytes to a buffer(1024 bytes)
- * @file: Name of the buffer
- * Return: A pointer
+ * create_buffer - Allocates 1024 bytes for a buffer.
+ * @file: The name of the file buffer is storing chars for.
+ *
+ * Return: A pointer to the newly-allocated buffer.
  */
+char *create_buffer(char *file)
 {
 	char *buffer;
 
@@ -22,22 +26,24 @@ void close_file(int fd);
 
 	return (buffer);
 }
+
 /**
  * close_file - Closes file descriptors.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
 {
-	int a;
+	int c;
 
-	a = close(fd);
+	c = close(fd);
 
-	if (a == -1)
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
+
 /**
  * main - Copies the contents of a file to another file.
  * @argc: The number of arguments supplied to the program.
@@ -52,7 +58,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int thro, m, r, w;
+	int from, to, r, w;
 	char *buffer;
 
 	if (argc != 3)
@@ -62,12 +68,12 @@ int main(int argc, char *argv[])
 	}
 
 	buffer = create_buffer(argv[2]);
-	thro = open(argv[1], O_RDONLY);
-	r = read(thro, buffer, 1024);
-	m = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	from = open(argv[1], O_RDONLY);
+	r = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (thro == -1 || r == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -76,7 +82,7 @@ int main(int argc, char *argv[])
 		}
 
 		w = write(to, buffer, r);
-		if (m == -1 || w == -1)
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -84,14 +90,14 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		r = read(thro, buffer, 1024);
-		m = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
 	free(buffer);
-	close_file(thro);
-	close_file(m);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
